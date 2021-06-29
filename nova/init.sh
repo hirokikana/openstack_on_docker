@@ -21,6 +21,11 @@ openstack endpoint create --region RegionOne compute public http://nova:8774/v2.
 openstack endpoint create --region RegionOne compute internal http://nova:8774/v2.1
 openstack endpoint create --region RegionOne compute admin http://nova:8774/v2.1
 
+su -s /bin/sh -c "nova-manage api_db sync" nova
+su -s /bin/sh -c "nova-manage cell_v2 map_cell0" nova
+su -s /bin/sh -c "nova-manage cell_v2 create_cell --name=cell1 --verbose" nova
+su -s /bin/sh -c "nova-manage cell_v2 simple_cell_setup" nova
+
 service nova-api restart
 service nova-scheduler restart
 service nova-conductor restart
