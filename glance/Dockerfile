@@ -7,7 +7,8 @@ RUN add-apt-repository cloud-archive:wallaby
 RUN apt -y install python3-openstackclient  python3-pymysql mysql-client
 RUN apt -y install glance
 
-COPY ./glance-api.conf /etc/glance/glance-api.conf 
+COPY ./glance-api.conf /etc/glance/glance-api.conf
+COPY ./init.sh /root/init.sh
 
 EXPOSE 9191
 EXPOSE 9292

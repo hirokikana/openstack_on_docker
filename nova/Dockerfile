@@ -7,7 +7,8 @@ RUN add-apt-repository cloud-archive:wallaby
 RUN apt -y install python3-openstackclient  python3-pymysql mysql-client
 RUN apt -y install nova-api nova-conductor nova-novncproxy nova-scheduler
 
-COPY ./nova.conf /etc/nova/nova.conf 
+COPY ./nova.conf /etc/nova/nova.conf
+COPY ./init.sh /root/init.sh
 
 EXPOSE 8774
 EXPOSE 8775

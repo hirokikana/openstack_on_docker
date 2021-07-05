@@ -9,5 +9,6 @@ RUN apt -y install keystone
 RUN service apache2 restart
 
 COPY ./keystone.conf /etc/keystone/keystone.conf
+COPY ./init.sh /root/init.sh
 
 EXPOSE 5000
